@@ -106,7 +106,7 @@ function getLinearEquationRoot(a, b) {
  *   (0,1) (0,1)     => 0
  */
 function getAngleBetweenVectors(x1, y1, x2, y2) {
-  return Math.atan2(x1, y1) - Math.atan2(x2, y2);
+  return Math.abs(Math.atan2(x1, y1) - Math.atan2(x2, y2));
 }
 
 /**
@@ -221,8 +221,8 @@ function isPrime(n) {
  *   toNumber(new Number(42), 0) => 42
  */
 function toNumber(value, def) {
-  if (typeof value === 'number' && Number.isNaN(def)) {
-    return value;
+  if (Number(value)) {
+    return Number(value);
   }
   return def;
 }
@@ -545,7 +545,8 @@ function getIntegerPartNumber(number) {
  * 0.1, 0.2, 0.3 => 0.6
  */
 function getSumOfNumbers(x1, x2, x3) {
-  return x1 + x2 + x3;
+  const sum = x1 + x2 + x3;
+  return +sum.toFixed(2);
 }
 
 /**
